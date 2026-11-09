@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Add, filter and delete your SpendWise transactions.">
+  <title>SpendWise | Transactions</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="transactions">
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><img src="images/favicon.svg" alt="">SpendWise</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a class="active" href="transactions.html">Transactions</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Transactions</h1>
+    <p class="subtitle">Record income and expenses.</p>
+
+    <section class="card">
+      <h2>Add a transaction</h2>
+      <form class="tx-form" id="tx-form">
+        <div><label for="title">Description</label><input id="title" type="text" placeholder="e.g. Lunch" required></div>
+        <div><label for="amount">Amount (KES)</label><input id="amount" type="number" min="1" step="0.01" placeholder="0.00" required></div>
+        <div>
+          <label for="type">Type</label>
+          <select id="type"><option value="expense">Expense</option><option value="income">Income</option></select>
+        </div>
+        <div><label for="category">Category</label><select id="category"></select></div>
+        <div><label for="date">Date</label><input id="date" type="date" required></div>
+        <div><button class="btn" type="submit">Add</button></div>
+      </form>
+    </section>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search description...">
+      <select id="filter-category"></select>
+      <select id="filter-type">
+        <option value="all">All types</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </div>
+
+    <section class="card">
+      <p class="tx-meta" id="filtered-summary" style="margin-bottom:.5rem"></p>
+      <ul class="tx-list" id="tx-list"></ul>
+    </section>
+  </main>
+
+  <footer>&copy; <span id="year">2026</span> SpendWise. Built as a deployment project.</footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
